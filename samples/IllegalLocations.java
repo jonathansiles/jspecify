@@ -30,4 +30,13 @@ class IllegalLocations<@Nullable E> {
 
   // PARADOX
   Lib<@Nullable ? super Object> x3;
+
+  class Nested {}
+
+  @Nullable Nested x4;
+
+  // PARADOX
+  @Nullable IllegalLocations<?>.Nested x5;
+
+  IllegalLocations<?>.@Nullable Nested x6;
 }
