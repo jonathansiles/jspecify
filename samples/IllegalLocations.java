@@ -22,6 +22,10 @@ import org.jspecify.annotations.Nullable;
 class IllegalLocations<@Nullable E> {
   interface Lib<T extends @Nullable Object> {}
 
+  class Nested {
+    class DoublyNested {}
+  }
+
   // jspecify_nullness_paradox
   Lib<@Nullable ?> x1;
 
@@ -31,12 +35,26 @@ class IllegalLocations<@Nullable E> {
   // jspecify_nullness_paradox
   Lib<@Nullable ? super Object> x3;
 
-  class Nested {}
-
   @Nullable Nested x4;
 
   // jspecify_nullness_paradox
   @Nullable IllegalLocations<?>.Nested x5;
 
   IllegalLocations<?>.@Nullable Nested x6;
+
+  // jspecify_nullness_paradox
+  @Nullable IllegalLocations<?>.Nested.DoublyNested x7;
+
+  // jspecify_nullness_paradox
+  IllegalLocations<?>.@Nullable Nested.DoublyNested x8;
+
+  IllegalLocations<?>.Nested.@Nullable DoublyNested x9;
+
+  // jspecify_nullness_paradox
+  Lib<@Nullable IllegalLocations<?>.Nested.DoublyNested> l1;
+
+  // jspecify_nullness_paradox
+  Lib<IllegalLocations<?>.@Nullable Nested.DoublyNested> l2;
+
+  Lib<IllegalLocations<?>.Nested.DoublyNested> l3;
 }
