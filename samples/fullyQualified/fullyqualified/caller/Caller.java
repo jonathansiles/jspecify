@@ -21,5 +21,6 @@ class Caller {
       lib.Clazz clazz,
       lib.Enumeration enumeration,
       lib.Interface iface,
-      lib.Annotation annotation) {}
+      lib.Annotation annotation,
+      lib.sub.Clazz subClazz) {}
 }
