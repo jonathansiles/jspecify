@@ -34,4 +34,6 @@ import java.lang.annotation.Target;
 @Documented
 @Target({TYPE, PACKAGE})
 @Retention(RUNTIME)
-public @interface DefaultNonNull {}
+public @interface DefaultNonNull {
+  // note for maintainers: When you update this file, please update the file in src/java9 too.
+}
