@@ -63,17 +63,17 @@ nullness of all type usages:
 
 ## `@Nullable` and `@NonNull`
 
-When a type usage is annotated with [`@Nullable`], it means that a value of the given type 
-can be `null`. `@Nullable String x` means that `x` might be `null`. Code that
-uses those values must be able to deal with the `null` case, and it's okay to
-assign `null` to such variables or pass `null` to those parameters.
+When a type usage is annotated with [`@Nullable`], it means that a value of the
+given type can be `null`. `@Nullable String x` means that `x` might be `null`.
+Code that uses those values must be able to deal with the `null` case, and it's
+okay to assign `null` to such variables or pass `null` to those parameters.
 
-When a type usage is annotated with [`@NonNull`], it means that no value of the given type 
-should be `null`. `@NonNull String x` means that `x` should never be `null`.
-Code that uses those values can assume they're not `null`, and it's a bad idea
-to assign `null` to those values or pass `null` to those parameters. (See
-[below](#nullmarked) for how to avoid having to spell out `@NonNull` most of the
-time.)
+When a type usage is annotated with [`@NonNull`], it means that no value of the
+given type should be `null`. `@NonNull String x` means that `x` should never be
+`null`. Code that uses those values can assume they're not `null`, and it's a
+bad idea to assign `null` to those values or pass `null` to those parameters.
+(See [below](#nullmarked) for how to avoid having to spell out `@NonNull` most
+of the time.)
 
 ```java
 static @Nullable String emptyToNull(@NonNull String x) {
